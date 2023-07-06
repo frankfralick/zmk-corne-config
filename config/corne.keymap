@@ -32,7 +32,7 @@
             compatible = "zmk,behavior-hold-tap";
             label = "AUTO_SHIFT";
             #binding-cells = <2>;
-            tapping_term_ms = <TAP_SPEED>;
+            tapping-term-ms = <TAP_SPEED>;
             quick_tap_ms = <0>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
@@ -50,7 +50,7 @@
             compatible = "zmk,behavior-hold-tap";
             label = "DEFAULT_HOLD_TAP";
             #binding-cells = <2>;
-            tapping_term_ms = <TAP_SPEED>; // You can adjust this as per your liking
+            tapping-term-ms = <TAP_SPEED>; // You can adjust this as per your liking
             flavor = "tap-preferred"; // prioritize the tap behavior
             bindings = <&kp>, <&kp>;
         };
@@ -86,7 +86,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "MINUS_EQUAL";
             #binding-cells = <0>;
-            tapping_term_ms = <TAP_SPEED>; // adjust this as per your liking
+            tapping-term-ms = <TAP_SPEED>; // adjust this as per your liking
             bindings = <&kp MINUS>, <&kp EQUAL>;
         };
 

@@ -87,7 +87,7 @@
             label = "MINUS_EQUAL";
             #binding-cells = <0>;
             tapping_term_ms = <TAP_SPEED>; // adjust this as per your liking
-            bindings = <&dht MINUS UNDS>, <&kp EQUAL>;
+            bindings = <&dht &kp MINUS &kp UNDS>, <&kp EQUAL>;
         };
 
 
@@ -99,13 +99,13 @@
             bindings = <&kp TAB>, <&kp ESC>;
         }; 
 
-        td01: tap_dance_minus {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_MINUS";
-            #binding-cells = <0>;
-            tapping-term-ms = <TAP_SPEED>;
-            bindings = <&as LS(MINUS) MINUS>, <&kp EQUAL>;
-        };
+        // td01: tap_dance_minus {
+        //     compatible = "zmk,behavior-tap-dance";
+        //     label = "TAP_DANCE_MINUS";
+        //     #binding-cells = <0>;
+        //     tapping-term-ms = <TAP_SPEED>;
+        //     bindings = <&as LS(MINUS) MINUS>, <&kp EQUAL>;
+        // };
 
 
         td02: tap_dance_ctrl {

@@ -133,7 +133,7 @@
     &td00       AS(SQT)     AS(COMMA)   AS(DOT)     AS(P)       AS(Y)               AS(F)       AS(G)       AS(C)       AS(R)       &kp L       &kp BSPC
     &kp LSHFT   AS(A)       AS(O)       AS(E)       AS(U)       AS(I)               AS(D)       &kp H       AS(T)       AS(N)       AS(S)       &mn_eq
     AS(FSLH)    AS(SEMI)    AS(Q)       &kp J       &kp K       AS(X)               AS(B)       AS(M)       AS(W)       AS(V)       AS(Z)       &kp LCTRL
-                                        &kp LGUI    &sl 1       &kp RET             &kp SPACE   &tog 2      &kp RALT
+                                        &kp LGUI    &sl 1       &kp RET             &kp SPACE   &mo 2      &kp RALT
                         >;
                 };
 

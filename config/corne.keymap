@@ -87,9 +87,10 @@
             label = "MINUS_EQUAL";
             #binding-cells = <0>;
             tapping_term_ms = <TAP_SPEED>; // adjust this as per your liking
-            bindings = <&dht &kp MINUS &kp UNDS>, <&kp EQUAL>;
+            bindings = <&kp MINUS>, <&kp EQUAL>;
         };
 
+            // bindings = <&dht(&kp MINUS &kp UNDS)>, <&kp EQUAL>;
 
         td00: tap_dance_tab_esc {
             compatible = "zmk,behavior-tap-dance";
@@ -130,7 +131,7 @@
 //                                      | GUI       | LWR       | RET       |       | SPACE     | RSE       | ALT       |
                 bindings = <
     &td00       AS(SQT)     AS(COMMA)   AS(DOT)     AS(P)       AS(Y)               AS(F)       AS(G)       AS(C)       AS(R)       &kp L       &kp BSPC
-    &kp LSHFT   AS(A)       AS(O)       AS(E)       AS(U)       AS(I)               AS(D)       &kp H       AS(T)       AS(N)       AS(S)       &mn_eq
+    &kp LSHFT   AS(A)       AS(O)       AS(E)       AS(U)       AS(I)               AS(D)       &kp H       AS(T)       AS(N)       AS(S)       AS(&mn_eq)
     AS(FSLH)    AS(SEMI)    AS(Q)       &kp J       &kp K       AS(X)               AS(B)       AS(M)       AS(W)       AS(V)       AS(Z)       &kp LCTRL
                                         &kp LGUI    &sl 1       &kp RET             &kp SPACE   &tog 2      &kp RALT
                         >;
@@ -160,7 +161,7 @@
 //                                      | GUI       |           | RET       |       | SPACE     |           | ALT       |
                         bindings = <
     AS(GRAVE)   &trans      AS(COMMA)   &trans      &trans      &trans              &trans      &kp BSPC    &kp KP_N7   &kp KP_N8   &kp KP_N9    &kp KP_PLUS
-    &trans      &trans      &kp UP      &trans      &trans      &trans              &trans      &trans      &kp KP_N4   &kp KP_N5   &kp KP_N6    &mn_eq
+    &trans      &trans      &kp UP      &trans      &trans      &trans              &trans      &trans      &kp KP_N4   &kp KP_N5   &kp KP_N6    AS(&mn_eq)
     AS(FSLH)    &kp LEFT    &kp DOWN    &kp RIGHT   &trans      &trans              &trans      &trans      &kp KP_N1   &kp KP_N2   &kp KP_N3    &kp KP_ASTERISK
                                         &kp LGUI    &trans      &kp RET             &kp SPACE   &trans      &kp RALT
                         >;

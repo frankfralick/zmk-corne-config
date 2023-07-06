@@ -17,14 +17,14 @@
             compatible = "zmk,behavior-sticky-layer";
             label = "STICKY_LAYER_LOWER";
             #binding-cells = <1>;
-            layer = <1>;
+            bindings = <&mo 1>;
         };
 
         rse: layer_raise {
             compatible = "zmk,behavior-toggle-layer";
             label = "LAYER_RAISE";
             #binding-cells = <1>;
-            layer = <2>;
+            bindings = <&mo 2>;
         };
 
         as: auto_shift {

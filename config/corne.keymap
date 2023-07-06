@@ -13,19 +13,19 @@
 
 / {    
     behaviors {
-        lwr: sticky_layer_lower {
-            compatible = "zmk,behavior-sticky-layer";
-            label = "STICKY_LAYER_LOWER";
-            #binding-cells = <1>;
-            bindings = <&mo 1>;
-        };
+        // lwr: sticky_layer_lower {
+        //     compatible = "zmk,behavior-sticky-layer";
+        //     label = "STICKY_LAYER_LOWER";
+        //     #binding-cells = <1>;
+        //     bindings = <&mo 1>;
+        // };
 
-        rse: layer_raise {
-            compatible = "zmk,behavior-toggle-layer";
-            label = "LAYER_RAISE";
-            #binding-cells = <1>;
-            bindings = <&mo 2>;
-        };
+        // rse: layer_raise {
+        //     compatible = "zmk,behavior-toggle-layer";
+        //     label = "LAYER_RAISE";
+        //     #binding-cells = <1>;
+        //     bindings = <&mo 2>;
+        // };
 
         as: auto_shift {
             compatible = "zmk,behavior-hold-tap";
@@ -113,7 +113,7 @@
     &td00       AS(SQT)     AS(COMMA)   AS(DOT)     AS(P)       AS(Y)               AS(F)       AS(G)       AS(C)       AS(R)       &kp L       &kp BSPC
     &kp LSHFT   AS(A)       AS(O)       AS(E)       AS(U)       AS(I)               AS(D)       &kp H       AS(T)       AS(N)       AS(S)       &mn_eq
     AS(FSLH)    AS(SEMI)    AS(Q)       &kp J       &kp K       AS(X)               AS(B)       AS(M)       AS(W)       AS(V)       AS(Z)       &kp LCTRL
-                                        &kp LGUI    &lwr        &kp RET             &kp SPACE   &rse        &kp RALT
+                                        &kp LGUI    &sl 1       &kp RET             &kp SPACE   &tog 2      &kp RALT
                         >;
                 };
 

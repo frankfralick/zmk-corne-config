@@ -11,6 +11,7 @@
 #define AS(keycode) &as LS(keycode) keycode     // Autoshift Macro
 #define TAP_SPEED 170
 
+
 / {    
     behaviors {
         // lwr: sticky_layer_lower {
@@ -31,46 +32,64 @@
             compatible = "zmk,behavior-hold-tap";
             label = "AUTO_SHIFT";
             #binding-cells = <2>;
-            tapping_term_ms = <145>;
+            tapping_term_ms = <TAP_SPEED>;
             quick_tap_ms = <0>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
 
-        lb_br: lb_bracket {
+        // lb_br: lb_bracket {
+        //     compatible = "zmk,behavior-hold-tap";
+        //     label = "LEFT_BRACE_OR_BRACKET";
+        //     #binding-cells = <2>;
+        //     tapping_term_ms = <TAP_SPEED>; // You can adjust this as per your liking
+        //     flavor = "tap-preferred"; // prioritize the tap behavior
+        //     bindings = <&kp>, <&kp>;
+        // };
+        dht: default_hold_tap {
             compatible = "zmk,behavior-hold-tap";
-            label = "LEFT_BRACE_OR_BRACKET";
+            label = "DEFAULT_HOLD_TAP";
             #binding-cells = <2>;
-            tapping_term_ms = <200>; // You can adjust this as per your liking
+            tapping_term_ms = <TAP_SPEED>; // You can adjust this as per your liking
             flavor = "tap-preferred"; // prioritize the tap behavior
-            bindings = <&kp LBRC>, <&kp LBKT>;
+            bindings = <&kp>, <&kp>;
         };
 
-        rb_br: rb_bracket {
-            compatible = "zmk,behavior-hold-tap";
-            label = "RIGHT_BRACE_OR_BRACKET";
-            #binding-cells = <2>;
-            tapping_term_ms = <200>; // You can adjust this as per your liking
-            flavor = "tap-preferred"; // prioritize the tap behavior
-            bindings = <&kp RBRC>, <&kp RBKT>;
-        };
+        // bindings = <&kp LEFT_BRACKET>, <&kp LEFT_BRACE>;
+        // rb_br: rb_bracket {
+        //     compatible = "zmk,behavior-hold-tap";
+        //     label = "RIGHT_BRACE_OR_BRACKET";
+        //     #binding-cells = <2>;
+        //     tapping_term_ms = <200>; // You can adjust this as per your liking
+        //     flavor = "tap-preferred"; // prioritize the tap behavior
+        //     bindings = <&kp RIGHT_BRACKET>, <&kp RIGHT_BRACE>;
+        // };
 
-        eq: equal_ht {
-            compatible = "zmk,behavior-hold-tap";
-            label = "EQUAL_HOLD_TAP";
-            #binding-cells = <2>;
-            tapping_term_ms = <TAP_SPEED>; // adjust this as per your liking
-            flavor = "hold-preferred"; // prioritize the hold behavior
-            bindings = <&kp EQUAL>, <&kp EQUAL>;
-        };
+        // eq: equal_ht {
+        //     compatible = "zmk,behavior-hold-tap";
+        //     label = "EQUAL_HOLD_TAP";
+        //     #binding-cells = <2>;
+        //     tapping_term_ms = <TAP_SPEED>; // adjust this as per your liking
+        //     flavor = "hold-preferred"; // prioritize the hold behavior
+        //     bindings = <&kp EQUAL>, <&kp EQUAL>;
+        // };
+
+        // mn_eq: minus_equal {
+        //     compatible = "zmk,behavior-tap-dance";
+        //     label = "MINUS_EQUAL";
+        //     #binding-cells = <0>;
+        //     tapping_term_ms = <TAP_SPEED>; // adjust this as per your liking
+        //     bindings = <&kp MINUS>, <&eq>, <&kp EQUAL>;
+        // };
 
         mn_eq: minus_equal {
             compatible = "zmk,behavior-tap-dance";
             label = "MINUS_EQUAL";
             #binding-cells = <0>;
             tapping_term_ms = <TAP_SPEED>; // adjust this as per your liking
-            bindings = <&kp MINUS>, <&eq>, <&kp EQUAL>;
+            bindings = <&dht MINUS UNDS>, <&kp EQUAL>;
         };
+
 
         td00: tap_dance_tab_esc {
             compatible = "zmk,behavior-tap-dance";
@@ -119,14 +138,15 @@
 
                 lower_layer {
 // -----------------------------------------------------------------------------------------
-// | TAB        |  !        |  @        |  #        |  $        |  %        |       |  ^        |  &        |  *        |  BTCR     |  BT1      | BT2       |
-// | F1         | F2        | F3        | F4        | F5        | F6        |       | LFT       | DWN       |  UP       | RGT       |           | PIPE      |
-// | F7         | F8        | F9        | F10       | F11       | F12       |       |           |           |           |           |           |           |
-//                                      | GUI       |           | RET       |       | SPACE     |           | ALT       |
+// | TAB        |  !        |  @        |  #        |  $        |  %        |       |  ^        |  &        |  *                |  BTCR         |  BT1      | BT2       |
+// | F1         | F2        | F3        | F4        | F5        | F6        |       | LFT       | DWN       |  UP               | RGT           |           | PIPE      |
+// | F7         | F8        | F9        | F10       | F11       | F12       |       |           |           |                   |               |           |           |
+//                                      | GUI       |           | RET       |       | SPACE     |           | ALT               |
+//    &kp F1       &kp F2      &kp F3      &kp F4      &kp F5      &kp F6              &kp LPAR    &kp RPAR    &lb_br      &rb_br      &trans       &kp PIPE
                         bindings = <
-   &kp TAB      &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT           &kp CARET   &kp AMPS    &kp N8      &bt BT_CLR  &bt BT_SEL 0 &bt BT_SEL 1
-   &kp F1       &kp F2      &kp F3      &kp F4      &kp F5      &kp F6              &kp LPAR    &kp RPAR    &lb_br      &rb_br      &trans       &kp PIPE
-   &kp F7       &kp F8      &kp F9      &kp F10     &kp F11     &kp F12             &trans      &trans      &trans      &trans      &kp BSLH     &kp LCTRL
+   &kp TAB      &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT           &kp CARET   &kp AMPS    &kp N8              &bt BT_CLR      &bt BT_SEL 0 &bt BT_SEL 1
+   &kp F1       &kp F2      &kp F3      &kp F4      &kp F5      &kp F6              &kp LPAR    &kp RPAR    &dht LBKT LBRC      &dht RBKT RBRC  &trans       &kp PIPE
+   &kp F7       &kp F8      &kp F9      &kp F10     &kp F11     &kp F12             &trans      &trans      &trans              &trans          &kp BSLH     &kp LCTRL
                                         &kp LGUI    &trans      &kp RET             &kp SPACE   &trans      &kp RALT
                         >;
                 };

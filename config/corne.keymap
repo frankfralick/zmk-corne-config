@@ -13,21 +13,16 @@
 
 
 / {    
+    combos {
+        compatible = "zmk,combos";
+        combo_esc: combo_esc {
+            timeout-ms = <50>; // Adjust timeout as needed
+            key-positions = <1 2>;
+            bindings = <&kp ESC>;
+        };
+    }; 
+
     behaviors {
-        // lwr: sticky_layer_lower {
-        //     compatible = "zmk,behavior-sticky-layer";
-        //     label = "STICKY_LAYER_LOWER";
-        //     #binding-cells = <1>;
-        //     bindings = <&mo 1>;
-        // };
-
-        // rse: layer_raise {
-        //     compatible = "zmk,behavior-toggle-layer";
-        //     label = "LAYER_RAISE";
-        //     #binding-cells = <1>;
-        //     bindings = <&mo 2>;
-        // };
-
         as: auto_shift {
             compatible = "zmk,behavior-hold-tap";
             label = "AUTO_SHIFT";
@@ -38,15 +33,7 @@
             bindings = <&kp>, <&kp>;
         };
 
-        // lb_br: lb_bracket {
-        //     compatible = "zmk,behavior-hold-tap";
-        //     label = "LEFT_BRACE_OR_BRACKET";
-        //     #binding-cells = <2>;
-        //     tapping_term_ms = <TAP_SPEED>; // You can adjust this as per your liking
-        //     flavor = "tap-preferred"; // prioritize the tap behavior
-        //     bindings = <&kp>, <&kp>;
-        // };
-        dht: default_hold_tap {
+       dht: default_hold_tap {
             compatible = "zmk,behavior-hold-tap";
             label = "DEFAULT_HOLD_TAP";
             #binding-cells = <2>;
@@ -54,33 +41,6 @@
             flavor = "tap-preferred"; // prioritize the tap behavior
             bindings = <&kp>, <&kp>;
         };
-
-        // bindings = <&kp LEFT_BRACKET>, <&kp LEFT_BRACE>;
-        // rb_br: rb_bracket {
-        //     compatible = "zmk,behavior-hold-tap";
-        //     label = "RIGHT_BRACE_OR_BRACKET";
-        //     #binding-cells = <2>;
-        //     tapping_term_ms = <200>; // You can adjust this as per your liking
-        //     flavor = "tap-preferred"; // prioritize the tap behavior
-        //     bindings = <&kp RIGHT_BRACKET>, <&kp RIGHT_BRACE>;
-        // };
-
-        // eq: equal_ht {
-        //     compatible = "zmk,behavior-hold-tap";
-        //     label = "EQUAL_HOLD_TAP";
-        //     #binding-cells = <2>;
-        //     tapping_term_ms = <TAP_SPEED>; // adjust this as per your liking
-        //     flavor = "hold-preferred"; // prioritize the hold behavior
-        //     bindings = <&kp EQUAL>, <&kp EQUAL>;
-        // };
-
-        // mn_eq: minus_equal {
-        //     compatible = "zmk,behavior-tap-dance";
-        //     label = "MINUS_EQUAL";
-        //     #binding-cells = <0>;
-        //     tapping_term_ms = <TAP_SPEED>; // adjust this as per your liking
-        //     bindings = <&kp MINUS>, <&eq>, <&kp EQUAL>;
-        // };
 
         mn_eq: minus_equal {
             compatible = "zmk,behavior-tap-dance";
@@ -90,8 +50,6 @@
             bindings = <&kp MINUS>, <&kp UNDER>, <&kp EQUAL>;
         };
 
-            // bindings = <&dht(&kp MINUS &kp UNDS)>, <&kp EQUAL>;
-
         td00: tap_dance_tab_esc {
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_TAB_ESC"; 
@@ -99,15 +57,6 @@
             tapping-term-ms = <TAP_SPEED>; 
             bindings = <&kp TAB>, <&kp ESC>;
         }; 
-
-        // td01: tap_dance_minus {
-        //     compatible = "zmk,behavior-tap-dance";
-        //     label = "TAP_DANCE_MINUS";
-        //     #binding-cells = <0>;
-        //     tapping-term-ms = <TAP_SPEED>;
-        //     bindings = <&as LS(MINUS) MINUS>, <&kp EQUAL>;
-        // };
-
 
         td02: tap_dance_ctrl {
             compatible = "zmk,behavior-tap-dance";
@@ -129,8 +78,10 @@
 // |  SHIFT     |  A        |  O        |  E        |  U        |  I        |       |  D        |  H        |  T        |  N        |  S        |  - _ =    |
 // | /:?        |  ;        |  Q        |  J        |  K        |  X        |       |  B        |  M        |  W        |  V        |  Z        | ESC       |
 //                                      | GUI       | LWR       | RET       |       | SPACE     | RSE       | ALT       |
+    //&td00       AS(SQT)     AS(COMMA)   AS(DOT)     AS(P)       AS(Y)               AS(F)       AS(G)       AS(C)       AS(R)       &kp L       &kp BSPC
+
                 bindings = <
-    &td00       AS(SQT)     AS(COMMA)   AS(DOT)     AS(P)       AS(Y)               AS(F)       AS(G)       AS(C)       AS(R)       &kp L       &kp BSPC
+    &kp TAB     AS(SQT)     AS(COMMA)   AS(DOT)     AS(P)       AS(Y)               AS(F)       AS(G)       AS(C)       AS(R)       &kp L       &kp BSPC
     &kp LSHFT   AS(A)       AS(O)       AS(E)       AS(U)       AS(I)               AS(D)       &kp H       AS(T)       AS(N)       AS(S)       &mn_eq
     AS(FSLH)    AS(SEMI)    AS(Q)       &kp J       &kp K       AS(X)               AS(B)       AS(M)       AS(W)       AS(V)       AS(Z)       &kp LCTRL
                                         &kp LGUI    &sl 1       &kp RET             &kp SPACE   &mo 2      &kp RALT

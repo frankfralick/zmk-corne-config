@@ -9,7 +9,7 @@
 #include <dt-bindings/zmk/bt.h>
 
 #define AS(keycode) &as LS(keycode) keycode     // Autoshift Macro
-#define TAP_SPEED 170
+#define TAP_SPEED 130
 
 
 / {    

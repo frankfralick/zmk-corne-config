@@ -33,7 +33,7 @@
             bindings = <&kp>, <&kp>;
         };
 
-       dht: default_hold_tap {
+        dht: default_hold_tap {
             compatible = "zmk,behavior-hold-tap";
             label = "DEFAULT_HOLD_TAP";
             #binding-cells = <2>;
@@ -69,12 +69,12 @@
     };    
     
 
-                keymap {
-                compatible = "zmk,keymap";
-
-                default_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB:ESC   |  '        |  ,        |  .        |  P        |  Y        |       |  F        |  G        |  C        |  R        |  L        | BKSP      |
+    keymap {
+        compatible = "zmk,keymap";
+            default_layer {
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------
+// |---------ESCAPE---------|
+// |  TAB       |  '        |  ,        |  .        |  P        |  Y        |       |  F        |  G        |  C        |  R        |  L        | BKSP      |
 // |  SHIFT     |  A        |  O        |  E        |  U        |  I        |       |  D        |  H        |  T        |  N        |  S        |  - _ =    |
 // | /:?        |  ;        |  Q        |  J        |  K        |  X        |       |  B        |  M        |  W        |  V        |  Z        | ESC       |
 //                                      | GUI       | LWR       | RET       |       | SPACE     | RSE       | ALT       |
@@ -85,26 +85,26 @@
     &kp LSHFT   AS(A)       AS(O)       AS(E)       AS(U)       AS(I)               AS(D)       &kp H       AS(T)       AS(N)       AS(S)       &mn_eq
     AS(FSLH)    AS(SEMI)    AS(Q)       &kp J       &kp K       AS(X)               AS(B)       AS(M)       AS(W)       AS(V)       AS(Z)       &kp LCTRL
                                         &kp LGUI    &sl 1       &kp RET             &kp SPACE   &mo 2      &kp RALT
-                        >;
-                };
+        >;
+    };
 
-                lower_layer {
-// -----------------------------------------------------------------------------------------
+    lower_layer {
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // | DEl        |  !        |  @        |  #        |  $        |  %        |       |  ^        |  &        |  *                |  BTCR         |  BT1      | BT2       |
 // | F1         | F2        | F3        | F4        | F5        | F6        |       | LFT       | DWN       |  UP               | RGT           |           | PIPE      |
 // | F7         | F8        | F9        | F10       | F11       | F12       |       |           |           |                   |               |           |           |
 //                                      | GUI       |           | RET       |       | SPACE     |           | ALT               |
 //    &kp F1       &kp F2      &kp F3      &kp F4      &kp F5      &kp F6              &kp LPAR    &kp RPAR    &lb_br      &rb_br      &trans       &kp PIPE
                         bindings = <
-   &kp DEL      &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT           &kp CARET   &kp AMPS    &kp N8              &bt BT_CLR      &bt BT_SEL 0 &bt BT_SEL 1
-   &kp F1       &kp F2      &kp F3      &kp F4      &kp F5      &kp F6              &kp LPAR    &kp RPAR    &dht LBKT LBRC      &dht RBKT RBRC  &trans       &kp PIPE
-   &kp F7       &kp F8      &kp F9      &kp F10     &kp F11     &kp F12             &trans      &trans      &trans              &trans          &kp BSLH     &kp LCTRL
+    &kp DEL      &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT           &kp CARET   &kp AMPS    &kp N8              &bt BT_CLR      &bt BT_SEL 0 &bt BT_SEL 1
+    &kp F1       &kp F2      &kp F3      &kp F4      &kp F5      &kp F6              &kp LPAR    &kp RPAR    &dht LBKT LBRC      &dht RBKT RBRC  &trans       &kp PIPE
+    &kp F7       &kp F8      &kp F9      &kp F10     &kp F11     &kp F12             &trans      &trans      &trans              &trans          &kp BSLH     &kp LCTRL
                                         &kp LGUI    &trans      &kp RET             &kp SPACE   &trans      &kp RALT
-                        >;
-                };
+        >;
+    };
 
 
-                raise_layer {
+    raise_layer {
 // -----------------------------------------------------------------------------------------
 // | GRAVE      |           | ,         |           |           |           |       |           |           |           |           |           |           |
 // |            |           | UP        |           |           |           |       |           |           |           |           |           |           |
@@ -135,4 +135,4 @@
 //                         >;
 //                 };
 //         };
-// };
+'/ };
